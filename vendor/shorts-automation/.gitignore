@@ -1,0 +1,10 @@
+__pycache__/
+.venv/
+.DS_Store
+upload/config/*.json
+!upload/config/config.example.json
+upload/logs/
+upload/업로드목록.xlsx
+upload/업로드대기/
+upload/업로드완료/
+shorts/facescan

@@ -1,0 +1,9 @@
+{
+  "default_platforms": "전체",
+  "default_visibility": "공개",
+  "default_hashtags": "",
+  "interval_minutes": 30,
+  "instagram_api_version": "v23.0",
+  "pending_dir": "/Users/나/Movies/쇼츠 자동 업로드",
+  "done_dir": "/Users/나/Movies/쇼츠 자동 업로드/업로드완료"
+}

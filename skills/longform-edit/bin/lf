@@ -1,0 +1,34 @@
+#!/bin/bash
+# 롱폼 편집 스킬 실행기.
+#   lf <스크립트> [인자...]
+#     lf sync --help            → skills/longform-edit/scripts/sync.py
+#     lf shorts/transcribe.py 영상.mp4   → vendor/shorts-automation/shorts/transcribe.py
+#     lf doctor                 → 설치 상태 점검
+# 파이썬은 ~/.longform-edit/venv 를 쓴다(install.sh 가 만든다).
+HERE="$(cd -P "$(dirname "$0")" && pwd)"
+SKILL="$(dirname "$HERE")"
+REPO="$(cd "$SKILL/../.." && pwd)"
+LF_HOME="${LONGFORM_HOME:-$HOME/.longform-edit}"
+PY="$LF_HOME/venv/bin/python"
+export PATH="$HOME/.local/bin:/opt/homebrew/bin:/usr/local/bin:$PATH"
+export LONGFORM_REPO="$REPO" LONGFORM_SKILL="$SKILL" LONGFORM_HOME="$LF_HOME"
+
+if [ ! -x "$PY" ]; then
+  echo "롱폼 편집 도구가 아직 설치되지 않았어요. 먼저 실행하세요:  bash \"$REPO/install.sh\"" >&2
+  exit 3
+fi
+if [ $# -eq 0 ]; then
+  sed -n '2,8p' "$0"; exit 0
+fi
+name="$1"; shift
+if [ -f "$name" ]; then
+  target="$name"
+elif [[ "$name" == shorts/* ]]; then
+  target="$REPO/vendor/shorts-automation/shorts/${name#shorts/}"
+elif [[ "$name" == *.py ]]; then
+  target="$SKILL/scripts/$name"
+else
+  target="$SKILL/scripts/$name.py"
+fi
+[ -f "$target" ] || { echo "스크립트를 찾을 수 없어요: $target" >&2; exit 2; }
+exec "$PY" "$target" "$@"

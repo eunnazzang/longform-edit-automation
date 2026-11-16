@@ -1,0 +1,12 @@
+.DS_Store
+__pycache__/
+*.pyc
+.venv/
+vendor/shorts-automation/shorts/facescan
+vendor/shorts-automation/upload/config/config.json
+vendor/shorts-automation/upload/*.xlsx
+vendor/shorts-automation/upload/logs/
+vendor/shorts-automation/upload/업로드대기/
+vendor/shorts-automation/upload/업로드완료/
+*.part
+*.part.mp4

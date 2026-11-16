@@ -1,0 +1,11 @@
+{
+  "name": "longform-edit-automation",
+  "owner": {"name": "eunnazzang"},
+  "plugins": [
+    {
+      "name": "longform-edit",
+      "source": "./",
+      "description": "유튜브 롱폼 편집 자동화 + 쇼츠 제작"
+    }
+  ]
+}

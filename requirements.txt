@@ -1,0 +1,14 @@
+# 롱폼 편집 (mlx-whisper는 Apple Silicon에서 install.sh가 따로 설치)
+numpy>=1.26
+scipy>=1.11
+pillow>=10.0
+yt-dlp>=2025.1.1
+huggingface_hub>=0.20
+
+# 쇼츠 자동 업로드
+openpyxl>=3.1
+requests>=2.31
+google-api-python-client>=2.100
+google-auth>=2.23
+google-auth-oauthlib>=1.1
+google-auth-httplib2>=0.1
